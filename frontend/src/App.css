@@ -86,3 +86,72 @@
     font-size: 0.9rem;
   }
 }
+
+/* -- */
+.liquid-tank {
+  position: relative;
+  width: 100%;
+  height: 40vh;
+  border: 2px solid #000;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #e0f7fa;
+  /* Light blue background for contrast */
+}
+
+.liquid-background {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.liquid {
+  position: absolute;
+  bottom: 0;
+  width: 200%;
+  /* Ensure the wave fills the width */
+  height: 0;
+  /* Start height at 0 */
+ 
+  /* border-radius: 20% 20% 0px 0px; */
+  animation: wave 4s infinite linear;
+  transition: height 2s ease-in-out;
+  /* Smooth height transition */
+}
+
+.percentage-label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.5em;
+  color: #fff;
+  z-index: 1;
+}
+
+@keyframes wave {
+  0% {
+    transform: translateX(0);
+    background: rgb(0, 174, 255);
+  }
+
+  50% {
+    transform: translateX(-50%) translatey(5%);
+    background: rgb(0, 153, 255);
+    /* transform: translatey(5%); */
+  }
+  
+  70% {
+    transform: translateX(-50%) translatey(2%);
+    background: rgb(0, 102, 255);
+    /* background: rgb(0, 174, 255); */
+    /* transform: translatey(5%); */
+  }
+
+  100% {
+    transform: translateX(0);
+    background: rgb(0, 174, 255);
+  }
+}
