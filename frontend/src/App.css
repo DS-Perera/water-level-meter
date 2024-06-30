@@ -1,0 +1,88 @@
+.mainBack {
+  background-color: #ffffff;
+  border-radius: 40px;
+  height: 80vh;
+}
+
+.h-full {
+  height: 100vh;
+}
+
+.equal-width-btn {
+  width: 100%;
+  max-width: 200px;
+  /* Adjust this value as needed */
+}
+
+
+/* ------------------ */
+.card {
+  margin: 10px 0;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+  padding: 20px;
+  text-align: center;
+}
+
+.views {
+  background-color: #28a745;
+  color: white;
+}
+
+.customers,
+.orders {
+  background-color: #343a40;
+  color: white;
+}
+
+.revenue {
+  background-color: #ffc107;
+  color: white;
+}
+
+.projections,
+.revenue-chart,
+.revenue-location,
+.total-sales {
+  background-color: white;
+  color: black;
+}
+
+.value {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.percentage {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.projections h5,
+.revenue-chart h5,
+.revenue-location h5,
+.total-sales h5 {
+  margin-bottom: 20px;
+}
+
+.container {
+  max-width: 1200px;
+}
+
+@media (max-width: 768px) {
+  .card-body {
+    padding: 15px;
+  }
+
+  .value {
+    font-size: 1.5rem;
+  }
+
+  .percentage {
+    font-size: 0.9rem;
+  }
+}
