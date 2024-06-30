@@ -8,7 +8,7 @@ export default function Dashboard2() {
   const [inputAmount, setInputAmount] = useState(130);
   const [outputAmount, setOutputAmount] = useState(140);
   const [filledAmount, setFilledAmount] = useState(70);
-  const [waterLevel, setWaterLevel] = useState(70);
+  const [waterLevel, setWaterLevel] = useState(60);
 
   // Define animated values
   const [animatedFilledAmount, setAnimatedFilledAmount] = useState(0);
@@ -51,91 +51,95 @@ export default function Dashboard2() {
 
   return (
     <div>
-      <div className="container">
-        <div className="row">
-          <div className="col-md-8">
-            <div className="row">
-              <div className="col-md-12">
-                <h2>Analytics</h2>
-              </div>
-              <div className="col-md-4">
-                <div className="card customers">
-                  <div className="card-body px-4">
-                    <div className="d-flex justify-content-between">
-                      <h5>Filled Amount</h5>
-                      <p className="percentage">+15.03%</p>
+      <div className="container ">
+        <div className="card py-4 px-4">
+          <div className="row">
+            <div className="col-md-8">
+              <div className="row">
+                <div className="col-md-12">
+                  <h2>Analytics</h2>
+                </div>
+                <div className="col-md-4">
+                  <div className="card customers card1">
+                    <div className="card-body px-4">
+                      <div className="d-flex justify-content-between">
+                        <h5>Filled</h5>
+                        <p className="percentage">+15.03%</p>
+                      </div>
+                      <p className="value">
+                        {animatedFilledAmount.toFixed(1)}L
+                      </p>
                     </div>
-                    <p className="value">{animatedFilledAmount.toFixed(1)}L</p>
                   </div>
                 </div>
-              </div>
-              <div className="col-md-4">
-                <div className="card views">
-                  <div className="card-body px-4">
-                    <div className="d-flex justify-content-between">
-                      <h5>Input Rate</h5>
-                      <p className="percentage">+15.03%</p>
+                <div className="col-md-4">
+                  <div className="card views card2">
+                    <div className="card-body px-4">
+                      <div className="d-flex justify-content-between">
+                        <h5>In Rate</h5>
+                        <p className="percentage">+15.03%</p>
+                      </div>
+                      <p className="value">{animatedInputRate} per Sec</p>
                     </div>
-                    <p className="value">{animatedInputRate} per Sec</p>
                   </div>
                 </div>
-              </div>
 
-              <div className="col-md-4">
-                <div className="card customers">
-                  <div className="card-body px-4">
-                    <div className="d-flex justify-content-between">
-                      <h5>Output Rate</h5>
-                      <p className="percentage">+15.03%</p>
+                <div className="col-md-4">
+                  <div className="card customers card3">
+                    <div className="card-body px-4">
+                      <div className="d-flex justify-content-between">
+                        <h5>Out Rate</h5>
+                        <p className="percentage">+15.03%</p>
+                      </div>
+                      <p className="value">{animatedOutputRate} per Sec</p>
                     </div>
-                    <p className="value">{animatedOutputRate} per Sec</p>
                   </div>
                 </div>
-              </div>
-              <div className="col-md-4">
-                <div className="card views">
-                  <div className="card-body px-4">
-                    <div className="d-flex justify-content-between">
-                      <h5>Water Level</h5>
-                      <p className="percentage">+15.03%</p>
+                <div className="col-md-4">
+                  <div className="card views card4">
+                    <div className="card-body px-4">
+                      <div className="d-flex justify-content-between">
+                        <h5>Water Level</h5>
+                        <p className="percentage">+15.03%</p>
+                      </div>
+                      <p className="value">{animatedWaterLevel} %</p>
                     </div>
-                    <p className="value">{animatedWaterLevel} %</p>
                   </div>
                 </div>
-              </div>
-              <div className="col-md-4">
-                <div className="card revenue">
-                  <div className="card-body px-4">
-                    <div className="d-flex justify-content-between">
-                      <h5>Input Amount</h5>
-                      <p className="percentage">+15.03%</p>
+                <div className="col-md-4">
+                  <div className="card revenue card5">
+                    <div className="card-body px-4">
+                      <div className="d-flex justify-content-between">
+                        <h5>In Amount</h5>
+                        <p className="percentage">+15.03%</p>
+                      </div>
+                      <p className="value">{animatedInputAmount} L</p>
                     </div>
-                    <p className="value">{animatedInputAmount} L</p>
                   </div>
                 </div>
-              </div>
-              <div className="col-md-4">
-                <div className="card customers">
-                  <div className="card-body px-4">
-                    <div className="d-flex justify-content-between">
-                      <h5>Output</h5>
-                      <p className="percentage">+15.03%</p>
+                <div className="col-md-4">
+                  <div className="card customers card6">
+                    <div className="card-body px-4">
+                      <div className="d-flex justify-content-between">
+                        <h5>Out</h5>
+                        <p className="percentage">+15.03%</p>
+                      </div>
+                      <p className="value">{animatedOutputAmount} L</p>
                     </div>
-                    <p className="value">{animatedOutputAmount} L</p>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div className="col-md-4 ">
-            <div className="row">
-              <div className="col-md-12">
-                <h2>Tank Level</h2>
+            <div className="col-md-4 ">
+              <div className="row">
+                <div className="col-md-12">
+                  <h2>Tank Level</h2>
+                </div>
               </div>
-            </div>
-            <div className="mt-2">
-              <LiquidTank percentage={waterLevel} />{" "}
-              {/* Add the LiquidTank component here */}
+              <div className="mt-2">
+                <LiquidTank percentage={waterLevel} />{" "}
+                {/* Add the LiquidTank component here */}
+              </div>
             </div>
           </div>
         </div>

@@ -1,3 +1,7 @@
+* {
+  font-family: "Montserrat", sans-serif !important;
+}
+
 .mainBack {
   background-color: #ffffff;
   border-radius: 40px;
@@ -91,8 +95,8 @@
 .liquid-tank {
   position: relative;
   width: 100%;
-  height: 40vh;
-  border: 2px solid #000;
+  height: 34vh;
+  border: 1px solid #86868642;
   border-radius: 10px;
   overflow: hidden;
   background: #e0f7fa;
@@ -114,7 +118,7 @@
   /* Ensure the wave fills the width */
   height: 0;
   /* Start height at 0 */
- 
+
   /* border-radius: 20% 20% 0px 0px; */
   animation: wave 4s infinite linear;
   transition: height 2s ease-in-out;
@@ -126,9 +130,10 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 1.5em;
+  font-size: 2em;
   color: #fff;
   z-index: 1;
+  text-shadow: 0px 0px 5px rgb(0, 92, 153);
 }
 
 @keyframes wave {
@@ -142,7 +147,7 @@
     background: rgb(0, 153, 255);
     /* transform: translatey(5%); */
   }
-  
+
   70% {
     transform: translateX(-50%) translatey(2%);
     background: rgb(0, 102, 255);
@@ -155,3 +160,161 @@
     background: rgb(0, 174, 255);
   }
 }
+
+.mainBack2 {
+  background: #f4f6f9;
+}
+
+h2 {
+  color: #949494a1;
+  font-weight: 400;
+}
+
+/* Specific styles for each card */
+.card1 {
+  background: linear-gradient(135deg, rgba(255, 92, 87, 0.8), rgba(255, 159, 146, 0.8), rgba(255, 214, 210, 0.8));
+}
+
+.card2 {
+  background: linear-gradient(135deg, rgba(102, 204, 255, 0.8), rgba(153, 204, 255, 0.8), rgba(204, 255, 255, 0.8));
+}
+
+.card3 {
+  background: linear-gradient(135deg, rgba(102, 255, 178, 0.8), rgba(153, 255, 204, 0.8), rgba(204, 255, 229, 0.8));
+}
+
+.card4 {
+  background: linear-gradient(135deg, rgba(255, 255, 102, 0.8), rgba(255, 255, 153, 0.8), rgba(255, 255, 204, 0.8));
+}
+
+.card5 {
+  background: linear-gradient(135deg, rgba(204, 153, 255, 0.8), rgba(229, 204, 255, 0.8), rgba(242, 229, 255, 0.8));
+}
+
+.card6 {
+  background: linear-gradient(135deg, rgba(255, 102, 255, 0.8), rgba(255, 153, 255, 0.8), rgba(255, 204, 255, 0.8));
+}
+
+.card h5 {
+  color: rgba(0, 79, 124, 0.925);
+  font-weight: 600;
+}
+
+.card .value {
+  color: #006ab1;
+  font-weight: 400;
+}
+
+.card .percentage {
+  color: #00395fc9;
+  font-weight: 400;
+}
+
+.analytics {
+  background: #ffffff;
+
+}
+
+h1 {
+  color: #006ab1;
+}
+
+h6 {
+  font-weight: 300;
+}
+
+.btn-custom,
+.btn-custom:hover {
+  border: 1px solid #006ab1;
+}
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  /* Full viewport height */
+  width: 100vw;
+  /* Full viewport width */
+  background-color: #f0f0f0;
+  /* Background color of your choice */
+}
+
+.loading-text {
+  font-size: 24px;
+  /* Adjust the font size as needed */
+  font-weight: bold;
+  /* Make the text bold */
+  animation: fadeInOut 2s infinite;
+  /* Add animation to the text */
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateY(200px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes dotFlashing {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+.aniGraphs {
+  animation: slideIn 2s ease-in-out;
+}
+
+
+
+.dots span {
+  animation: dotFlashing 1s infinite;
+  animation-delay: 0s;
+}
+
+.dots span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.dots span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
