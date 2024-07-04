@@ -1,17 +1,18 @@
 const express = require("express");
 const { initializeApp } = require("firebase/app");
-const { getDatabase, ref, set } = require("firebase/database");
+const { getDatabase, ref, set, get, child } = require("firebase/database");
 const cors = require("cors");
 
 // Initialize Firebase
 const firebaseConfig = {
-  apiKey: "AIzaSyCwAMrMTk96PffuW7a4yEKifshfGoCQBZ4",
-  authDomain: "sms-server-adef0.firebaseapp.com",
-  databaseURL: "https://sms-server-adef0-default-rtdb.firebaseio.com",
-  projectId: "sms-server-adef0",
-  storageBucket: "sms-server-adef0.appspot.com",
-  messagingSenderId: "155027503725",
-  appId: "1:155027503725:web:0c46d7f10aef2e2fdfdd64",
+  apiKey: "AIzaSyD1aTtGBQIwHVNffrtgbokuOngQAYvH8Bo",
+  authDomain: "water-tank-6ccdc.firebaseapp.com",
+  databaseURL: "https://water-tank-6ccdc-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "water-tank-6ccdc",
+  storageBucket: "water-tank-6ccdc.appspot.com",
+  messagingSenderId: "1045481663635",
+  appId: "1:1045481663635:web:1cb0ed10ce67b8bd3ff166",
+  measurementId: "G-9XEMVD9MKE"
 };
 
 const firebaseApp = initializeApp(firebaseConfig);
@@ -21,38 +22,23 @@ const app = express();
 app.use(cors()); // Enable CORS
 app.use(express.json()); // Enable JSON parsing for request bodies
 
-// API to write data to Firebase
-app.post("/write-data", async (req, res) => {
+
+// API to view data from Firebase
+app.get("/viewData", async (req, res) => {
   try {
-    const { designation, message } = req.body;
+    const dbRef = ref(getDatabase());
+    const snapshot = await get(child(dbRef, `/`));
 
-    if (!designation || !message) {
-      return res
-        .status(400)
-        .json({ error: "Designation and message are required" });
+    if (snapshot.exists()) {
+      res.json(snapshot.val());
+    } else {
+      res.status(404).json({ error: "No data available" });
     }
-
-    // Define the data to be written
-    const data = {
-      designation,
-      message,
-    };
-
-    // Reference to the specific path in the database
-    const dataRef = ref(database, "messages");
-
-    // Write the data to Firebase
-    await set(dataRef, data);
-
-    // Send the response
-    res.json({ message: "Data written successfully" });
   } catch (error) {
-    console.error("Error writing data:", error);
+    console.error("Error reading data:", error);
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
-
-
 
 // Start the server
 const PORT = process.env.PORT || 3002;
